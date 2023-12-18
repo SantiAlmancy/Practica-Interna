@@ -17,7 +17,7 @@ class Detection:
         self.Actions = actions
         self.landmark = Landmarks()
         self.camera = Camera()
-        self.TexToSpeech = TexToSpeech('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_ES-MX_SABINA_11.0', 200, 1.0)
+        self.TexToSpeech = TexToSpeech(200, 1.0)
         self.running = False
         self.scan = False
         self.LastText = ""

@@ -1,14 +1,7 @@
 from pathlib import Path
-from Camera import Camera
-# from tkinter import *
-# Explicit imports to satisfy Flake8
-from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, Label
-from PIL import Image, ImageTk
-from Camera import Camera
+from tkinter import Tk, Canvas, Button, PhotoImage, Label
 from Collections import Collections
 from Preprocess import Preprocess
-from Train import Train
-from Landmarks import Landmarks
 from Detection import Detection
 import numpy as np
 import threading
@@ -16,7 +9,9 @@ import threading
 
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\PC\Documents\PracticaInterna\Tkinter-Designer-master\build\assets\frame0")
+
+# Combina el directorio actual con la ruta relativa a 'assets'
+ASSETS_PATH = OUTPUT_PATH / "assets" / "frame0"
 
 
 def relative_to_assets(path: str) -> Path:
@@ -79,7 +74,7 @@ canvas.create_text(
     1189.0,
     52.0,
     anchor="nw",
-    text="1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20",
+    text="1 Gracias\n2 Hola\n3 Por favor\n4 Comer\n5 Pensar\n6 Amar",
     fill="#2C2C2C",
     font=("Aldrich Regular", 18 * -1)
 )
@@ -114,7 +109,7 @@ video_tq = Label(window, bg="black")
 video_tq.place(x=114, y=95)
 
 #Datos
-actions = np.array(['gracias','hola','trabajar', 'tener miedo', 'hablar','comprar', 'respetar', 'comer', 'hasta la proxima', 'te quiero', 'chau', 'Como te sientes', 'Como estas', 'por favor', 'chau'])
+actions = np.array(['gracias','hola', 'porfavor', 'comer', 'pensar', 'amar'])
 
 no_sequences = 30
 sequence_length = 30
