@@ -23,6 +23,6 @@ class Train:
         model.add(Dense(self.Actions.shape[0], activation='softmax'))
 
         model.compile(optimizer='Adam', loss='categorical_crossentropy', metrics=['categorical_accuracy'])
-        model.fit(self.X_train, self.Y_train, epochs=2000, callbacks=[tb_callback])
+        model.fit(self.X_train, self.Y_train, epochs=200, callbacks=[tb_callback])
         model.save('model/mi_modelo.h5')
         print(model.summary())

@@ -6,19 +6,19 @@ class Camera:
 
     def __init__(self):
         self.landmark = Landmarks()
+        self.cap = None
 
     def AccessCamera(self):
         # Acceso a la webcam
-        cap = cv2.VideoCapture(0)
+        self.cap = cv2.VideoCapture(0)
         #min_detection_confidence = realizar una detección inicial para empezar el tracking
         #min_tracking_confidence = la confiabilidad del tracking
         with self.landmark.mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
             # Mientras el webcam esté abierto
-            while cap.isOpened():
+            while self.cap.isOpened():
 
                 # Leer el feed, el frame (El while es rápido)
-                ret, frame = cap.read()
-
+                ret, frame = self.cap.read()
                 # Invertir horizontalmente la imagen
                 frame = cv2.flip(frame, 1)
 
@@ -37,7 +37,7 @@ class Camera:
                 if cv2.waitKey(10) & 0xFF == ord('q'):
                     break
 
-            cap.release()
+            self.cap.release()
             cv2.destroyAllWindows()
 
     #Extract keypoint values
